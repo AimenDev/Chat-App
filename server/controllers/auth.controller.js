@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
-import  generateTokenAndSetCookie  from "../utils/generateToken.js";
+import generateTokenAndSetCookie from "../utils/generateToken.js";
 export const signup = async (req, res) => {
   try {
     const { name, username, password, confirmPassword, gender } = req.body;
@@ -69,7 +69,7 @@ export const login = async (req, res) => {
       _id: user._id,
       name: user.name,
       username: user.username,
-      profilePic: user.profilePic,
+      profilepic: user.profilepic,
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
