@@ -10,7 +10,6 @@ const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   useEffect(() => {
-    // Cleanup function (unmounts)
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
@@ -29,7 +28,7 @@ const MessageContainer = () => {
           </div>
 
           {/* Messages Section */}
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto p-4">
             <Messages />
           </div>
 

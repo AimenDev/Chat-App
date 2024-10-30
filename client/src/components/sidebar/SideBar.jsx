@@ -5,7 +5,7 @@ import SearchInput from "./Searchinput";
 
 const Sidebar = () => {
   return (
-    <div className="w-72 sm:w-80 md:w-96 flex flex-col p-4 bg-gray-600 bg-opacity-50 backdrop-blur-md border-r border-gray-400 rounded-l-lg">
+    <div className="w-full sm:w-80 md:w-96 flex flex-col p-4 bg-gray-600 bg-opacity-50 backdrop-blur-md border-r border-gray-400 rounded-l-lg">
       {/* Search Input */}
       <SearchInput />
 
