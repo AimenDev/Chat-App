@@ -7,12 +7,14 @@ const LogoutButton = () => {
   return (
     <div className="mt-auto">
       {!loading ? (
-        <BiLogOut
-          className="w-6 h-6 text-white cursor-pointer"
-          onClick={logout}
-        />
+        <div className="tooltip tooltip-right" data-tip="Logout">
+          <BiLogOut
+            className="w-7 h-7 text-gray-300 hover:text-secondary cursor-pointer transition-all duration-300 transform hover:scale-110"
+            onClick={logout}
+          />
+        </div>
       ) : (
-        <span className="loading loading-spinner"></span>
+        <span className="loading loading-spinner text-white"></span>
       )}
     </div>
   );

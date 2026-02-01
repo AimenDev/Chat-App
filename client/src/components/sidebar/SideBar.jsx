@@ -5,15 +5,15 @@ import SearchInput from "./Searchinput";
 
 const Sidebar = () => {
   return (
-    <div className="w-full sm:w-80 md:w-96 flex flex-col p-4 bg-gray-600 bg-opacity-50 backdrop-blur-md border-r border-gray-400 rounded-l-lg">
+    <div className="w-full sm:w-80 md:w-96 flex flex-col p-4 bg-transparent">
       {/* Search Input */}
       <SearchInput />
 
       {/* Divider */}
-      <div className="my-4 border-b border-gray-600"></div>
+      <div className="my-4 border-b border-glass-border"></div>
 
       {/* Conversations */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto custom-scrollbar">
         <Conversations />
       </div>
 

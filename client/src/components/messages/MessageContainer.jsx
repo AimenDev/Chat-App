@@ -14,26 +14,26 @@ const MessageContainer = () => {
   }, [setSelectedConversation]);
 
   return (
-    <div className="flex-1 flex flex-col bg-gray-600 bg-opacity-50 backdrop-blur-md border-l border-gray-400 rounded-r-lg">
+    <div className="flex-1 flex flex-col bg-transparent">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           {/* Header */}
-          <div className="bg-gray-700 bg-opacity-70 px-4 py-3 flex items-center justify-between">
+          <div className="bg-glass-light px-6 py-4 flex items-center justify-between backdrop-blur-sm border-b border-glass-border">
             <span className="text-gray-300">To:</span>
-            <span className="text-gray-100 font-semibold">
+            <span className="text-white font-bold text-lg ml-2">
               {selectedConversation.name}
             </span>
           </div>
 
           {/* Messages Section */}
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
             <Messages />
           </div>
 
           {/* Message Input */}
-          <div className="border-t border-gray-600">
+          <div className="px-6 py-4 bg-glass-light border-t border-glass-border backdrop-blur-sm">
             <MessageInput />
           </div>
         </>
@@ -47,13 +47,13 @@ export default MessageContainer;
 const NoChatSelected = () => {
   const { authUser } = useAuthContext();
   return (
-    <div className="flex items-center justify-center w-full h-full text-gray-300">
-      <div className="text-center">
-        <p className="text-lg md:text-xl font-semibold">
+    <div className="flex items-center justify-center w-full h-full text-white">
+      <div className="text-center p-8 bg-glass-light rounded-2xl border border-glass-border shadow-xl backdrop-blur-sm">
+        <p className="text-2xl font-bold mb-2">
           Welcome, 👋 {authUser.name}!
         </p>
-        <p className="mb-2">Select a chat to start messaging</p>
-        <TiMessages className="text-5xl md:text-6xl text-gray-500" />
+        <p className="text-gray-300 mb-6">Select a chat to start messaging</p>
+        <TiMessages className="text-6xl text-primary mx-auto animate-bounce" />
       </div>
     </div>
   );

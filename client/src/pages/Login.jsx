@@ -15,50 +15,51 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <div className="w-full max-w-md p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
-          Login
-          <span className="text-blue-500"> ChatApp</span>
+      <div className="w-full max-w-md p-8 rounded-2xl shadow-2xl glass-morphism">
+        <h1 className="text-4xl font-bold text-center text-white mb-2">
+          Welcome Back
         </h1>
+        <p className="text-center text-gray-300 mb-8">
+          Login to <span className="text-primary font-semibold">ChatApp</span>
+        </p>
 
-        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-          <div>
-            <label className="label p-2">
-              <span className="text-base label-text text-black">Username</span>
-            </label>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="relative">
             <input
               type="text"
-              placeholder="Enter username"
-              className="w-full input input-bordered h-10"
+              placeholder="Username"
+              className="w-full px-4 py-3 bg-glass-light border border-glass-border rounded-lg focus:outline-none focus:border-primary text-white placeholder-gray-400 transition-all"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
-          <div>
-            <label className="label">
-              <span className="text-base label-text text-black">Password</span>
-            </label>
+          <div className="relative">
             <input
               type="password"
-              placeholder="Enter Password"
-              className="w-full input input-bordered h-10"
+              placeholder="Password"
+              className="w-full px-4 py-3 bg-glass-light border border-glass-border rounded-lg focus:outline-none focus:border-primary text-white placeholder-gray-400 transition-all"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          
-          <Link
-            to="/signup"
-            className="text-sm text-black hover:underline hover:text-blue-600 mt-2 inline-block"
-          >
-            {"Don't"} have an account?
-          </Link>
+
+          <div className="text-right">
+            <Link
+              to="/signup"
+              className="text-sm text-gray-300 hover:text-primary hover:underline transition-colors"
+            >
+              {"Don't"} have an account?
+            </Link>
+          </div>
 
           <div>
-            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
+            <button
+              className="w-full py-3 px-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={loading}
+            >
               {loading ? (
-                <span className="loading loading-spinner "></span>
+                <span className="loading loading-spinner text-white"></span>
               ) : (
                 "Login"
               )}

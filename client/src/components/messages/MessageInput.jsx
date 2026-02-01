@@ -21,34 +21,43 @@ const MessageInput = () => {
   };
 
   return (
-    <form className="px-4 my-3" onSubmit={handleSubmit}>
-      <div className="w-full relative">
+    <form className="w-full relative" onSubmit={handleSubmit}>
+      <div className="relative">
         <input
           type="text"
-          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white pr-16"
-          placeholder="Send a message"
+          className="w-full bg-glass-heavy border border-glass-border text-white text-sm rounded-full block p-4 pr-24 placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+          placeholder="Type a message..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <div className="absolute inset-y-0 end-0 flex items-center gap-2 pe-3">
+        <div className="absolute inset-y-0 end-0 flex items-center gap-3 pe-4">
           <button
             type="button"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-accent transition-colors transform hover:scale-110"
           >
-            <BsEmojiSmile size={20} />
+            <BsEmojiSmile size={22} />
           </button>
-          <button type="submit">
+          <button
+            type="submit"
+            className="text-primary hover:text-white transition-colors transform hover:scale-110"
+            disabled={loading}
+          >
             {loading ? (
-              <div className="loading loading-spinner"></div>
+              <div className="loading loading-spinner loading-xs"></div>
             ) : (
-              <BsSend />
+              <BsSend size={20} />
             )}
           </button>
         </div>
         {showEmojiPicker && (
-          <div className="absolute bottom-full right-0 mb-2">
-            <EmojiPicker onEmojiClick={onEmojiClick} width={300} height={400} />
+          <div className="absolute bottom-14 right-0 z-50 shadow-2xl rounded-xl overflow-hidden glass-morphism">
+            <EmojiPicker
+              onEmojiClick={onEmojiClick}
+              theme="dark"
+              width={300}
+              height={400}
+            />
           </div>
         )}
       </div>
